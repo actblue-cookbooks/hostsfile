@@ -212,7 +212,7 @@ class Manipulator
   #   the sorted list of entires that are unique
   def unique_entries
     entries = Hash[*@entries.map { |entry| [entry.ip_address, entry] }.flatten].values
-    entries.sort_by { |e| [-e.priority.to_i, e.hostname.to_s] }
+    entries.sort_by { |e| [-e.priority.to_i, e.hostname.to_s, e.ip_address] }
   end
 
   # Takes /etc/hosts file contents and builds a flattened entries
